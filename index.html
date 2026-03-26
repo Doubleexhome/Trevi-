@@ -8,8 +8,6 @@
   <style>
     :root {
       --bg: #0f172a;
-      --card: rgba(255, 255, 255, 0.05);
-      --border: rgba(255, 255, 255, 0.12);
       --text: #ffffff;
     }
 
@@ -32,7 +30,7 @@
     .container {
       text-align: center;
       width: 100%;
-      max-width: 900px;
+      max-width: 1100px;
       padding: 20px;
     }
 
@@ -46,80 +44,39 @@
       margin-bottom: 60px;
     }
 
-    /* PIRAMIDE */
-    .pyramid {
+    .logos {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 40px;
+      gap: 80px;
+      flex-wrap: wrap;
     }
 
-    .row {
-      display: flex;
-      gap: 50px;
-      justify-content: center;
-    }
-
-    .logo-card {
-      width: 200px;   /* più grande */
-      height: 200px;
-      border-radius: 24px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(12px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .logo {
       transition: all 0.35s ease;
-      position: relative;
-      overflow: hidden;
     }
 
-    /* logo sopra più grande */
-    .top {
-      width: 230px;
-      height: 230px;
+    .logo img {
+      width: 180px; /* loghi grandi */
+      height: auto;
+      transition: all 0.35s ease;
     }
 
-    .logo-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top, rgba(255,255,255,0.2), transparent 70%);
-      opacity: 0;
-      transition: opacity 0.3s ease;
+    /* effetto hover premium */
+    .logo:hover img {
+      transform: scale(1.15);
+      filter: brightness(1.2);
     }
 
-    .logo-card:hover::before {
-      opacity: 1;
-    }
-
-    .logo-card:hover {
-      transform: translateY(-10px) scale(1.05);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-      border-color: rgba(255,255,255,0.3);
-    }
-
-    .logo-card img {
-      max-width: 110px;
-      max-height: 110px;
-      transition: transform 0.3s ease;
-    }
-
-    .top img {
-      max-width: 130px;
-      max-height: 130px;
-    }
-
-    .logo-card:hover img {
-      transform: scale(1.12);
+    .logo:hover {
+      transform: translateY(-10px);
     }
 
     a {
       text-decoration: none;
     }
 
-    /* animazioni */
+    /* animazione entrata */
     .fade {
       opacity: 0;
       transform: translateY(30px);
@@ -138,19 +95,13 @@
     }
 
     /* mobile */
-    @media (max-width: 600px) {
-      .logo-card {
-        width: 150px;
-        height: 150px;
+    @media (max-width: 700px) {
+      .logos {
+        gap: 40px;
       }
 
-      .top {
-        width: 180px;
-        height: 180px;
-      }
-
-      .row {
-        gap: 20px;
+      .logo img {
+        width: 130px;
       }
     }
   </style>
@@ -161,29 +112,22 @@
     <h1>Scegli la tua destinazione</h1>
     <p>Seleziona uno dei seguenti siti</p>
 
-    <div class="pyramid">
+    <div class="logos">
 
-      <!-- TOP -->
-      <a href="https://www.sito1.com" target="_blank" class="fade delay1">
-        <div class="logo-card top">
-          <img src="logo1.png" alt="Sito 1">
-        </div>
+      <!-- LOGO 1 -->
+      <a href="https://www.sito1.com" target="_blank" class="logo fade delay1">
+        <img src="logo1.png" alt="Sito 1">
       </a>
 
-      <!-- BOTTOM ROW -->
-      <div class="row">
-        <a href="https://www.doubleexhome.com/" target="_blank" class="fade delay2">
-          <div class="logo-card">
-            <img src="Logo Double Ex Home.png" alt="Sito 2">
-          </div>
-        </a>
+      <!-- LOGO 2 -->
+      <a href="https://doubleexhome.com/" target="_blank" class="logo fade delay2">
+        <img src="Logo Double Ex Home.png" alt="Sito 2">
+      </a>
 
-        <a href="https://www.sito3.com" target="_blank" class="fade delay3">
-          <div class="logo-card">
-            <img src="logo3.png" alt="Sito 3">
-          </div>
-        </a>
-      </div>
+      <!-- LOGO 3 -->
+      <a href="https://dinnerinthesky.it/" target="_blank" class="logo fade delay3">
+        <img src="dinner-in-the-sky cop.png" alt="Sito 3">
+      </a>
 
     </div>
   </div>
